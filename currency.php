@@ -14,8 +14,9 @@
         <style>
             body{font-family: 'Open Sans', sans-serif;}
             h1{text-align: center;font-size: 34px;margin:50px;}
-            #tab{margin: 0px auto; margin-bottom: 50px;}
+            #tab{margin: 0px auto; margin-bottom: 50px;width:1000px;}
             td,th{text-align: center;width:150px;height: 50px;}
+            #tab1:hover{cursor: pointer;background-color: #ccc;}
             th{font-size: 25px;}
             #nameCol{width: 200px;}
             ul{text-align: center;margin-bottom: 40px;}
@@ -43,9 +44,9 @@
     echo "<table class = 'table-striped' id = 'tab' >";
     echo "<tr><th> </th><th> </th><th>Alış ₺</th><th>Satış ₺</th><th>%</th></tr>";
     for ($k = 0; $k < 10; $k++){
-        echo "<tr>";
+        echo "<tr id='tab1'>";
         $upperName = strtoupper($decode[$k]->name);
-        echo "<td id = 'nameCol'>{$upperName}</td>";
+        echo "<td id = 'nameCol'><a href='detail.php?code={$decode[$k]->code}'>{$upperName}</a></td>";
         echo "<td>{$decode[$k]->code}</td>";
         $buying = number_format($decode[$k]->buying, 3);
         echo "<td>{$buying}</td>";
