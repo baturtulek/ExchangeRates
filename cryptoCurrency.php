@@ -3,7 +3,7 @@
 <html>
      <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Kripto Paralar</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- jQuery library --> 
@@ -22,10 +22,12 @@
             ul{text-align: center;margin-bottom: 40px;}
             li{display: inline;}
             img{width: 30px;height: 30px;margin-left: 15px;}
+            #logo{width:700px;height: 200px;}
+            #head{ margin:20px auto; padding-left:225px;}
         </style>
   </head>
 <body>
-     <h1>Current Exchange Rates</h1>
+<div id="head"><img id="logo" src = "images/logoP.png"/></div>
     <ul>
         <li><a href = "currency.php"><button type="button" class="btn btn-primary btn-lg" style = "width:150px">Döviz</button></a></li>
         <li><a href = "gold.php"><button type="button" class="btn btn-primary btn-lg" style = "width:150px">Altın</button></a></li>
@@ -33,6 +35,7 @@
         <li><a href = "cryptoCurrency.php"><button type="button" class="btn btn-primary btn-lg" style = "width:150px">Kripto Paralar</button></a></li>
         
     </ul>
+    <div>
     <?php
     $url = "https://www.doviz.com/api/v1/coins/all/latest";
     $data = file_get_contents($url);
@@ -60,14 +63,15 @@
         $change = number_format($decode[$k]->change_rate, 3);
         echo "<td>{$change}";
         if($change > 0){
-            echo "<img src = 'up.png'></td>";
+            echo "<img src = 'images/up.png'></td>";
         }else{
-            echo "<img src = 'down.jpeg'></td>";
+            echo "<img src = 'images/down.jpeg'></td>";
         }
         echo "</tr>";
     }
     echo "</table>";
 
     ?>
+        </div>
 </body>
 </html>
